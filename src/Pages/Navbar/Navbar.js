@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -10,46 +11,46 @@ function Navbar() {
                     <div className="py-5 flex justify-between md:block">
                         <div className="flex justify-between items-center">
                             <div className="flex-shrink-0">
-                                <a href="home">
+                                <Link to="/">
                                     <h1 className="text-4xl font-semibold"><span className="text-secondary">D</span>octor <span className="text-secondary">P</span>ortal</h1>
-                                </a>
+                                </Link>
                             </div>
                             <div className="hidden md:block">
                                 <div className="ml-10 flex items-baseline space-x-4">
-                                    <a
-                                        href="hone"
+                                    <Link
+                                        to="home"
                                         className="text-black hover:bg-secondary hover:text-white px-3 py-2 rounded-md text-lg font-medium"
                                     >
                                         Home
-                                    </a>
+                                    </Link>
 
-                                    <a
-                                        href="hone"
+                                    <Link
+                                        to="about"
                                         className="text-black hover:bg-secondary hover:text-white px-3 py-2 rounded-md text-lg font-medium"
                                     >
                                         About
-                                    </a>
+                                    </Link>
 
-                                    <a
-                                        href="hone"
+                                    <Link
+                                        to="appointment"
                                         className="text-black hover:bg-secondary hover:text-white px-3 py-2 rounded-md text-lg font-medium"
                                     >
                                         Appointment
-                                    </a>
+                                    </Link>
 
-                                    <a
-                                        href="hone"
+                                    <Link
+                                        to="login"
                                         className="text-black hover:bg-secondary hover:text-white px-3 py-2 rounded-md text-lg font-medium"
                                     >
                                         Login
-                                    </a>
+                                    </Link>
 
-                                    <a
-                                        href="hone"
+                                    <Link
+                                        to="signup"
                                         className="text-black hover:bg-secondary hover:text-white px-3 py-2 rounded-md text-lg font-medium"
                                     >
                                         Signup
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -112,40 +113,40 @@ function Navbar() {
                     {(ref) => (
                         <div className="md:hidden" id="mobile-menu">
                             <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                                <a
-                                    href="hone"
+                                <Link
+                                    to="home"
                                     className="text-black hover:bg-secondary hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                                 >
                                     Home
-                                </a>
+                                </Link>
 
-                                <a
-                                    href="hone"
+                                <Link
+                                    to="about"
                                     className="text-black hover:bg-secondary hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                                 >
                                     About
-                                </a>
+                                </Link>
 
-                                <a
-                                    href="hone"
+                                <Link
+                                    to="appointment"
                                     className="text-black hover:bg-secondary hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                                 >
                                     Appointment
-                                </a>
+                                </Link>
 
-                                <a
-                                    href="hone"
+                                <Link
+                                    to="login"
                                     className="text-black hover:bg-secondary hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                                 >
                                     Login
-                                </a>
+                                </Link>
 
-                                <a
-                                    href="hone"
+                                <Link
+                                    to="signup"
                                     className="text-black hover:bg-secondary hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                                 >
                                     Signup
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     )}
