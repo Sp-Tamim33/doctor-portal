@@ -1,5 +1,6 @@
 import React from 'react';
 import Banner from './Banner';
+import Checkup from './Checkup';
 import ServiceSection from './ServiceSection/ServiceSection';
 import TimeSection from './TimeSection/TimeSection';
 
@@ -9,6 +10,7 @@ const Home = () => {
             <Banner />
             <TimeSection />
             <ServiceSection />
+            <Checkup />
         </div>
     );
 };
