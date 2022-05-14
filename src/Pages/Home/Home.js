@@ -4,6 +4,7 @@ import Checkup from './Checkup';
 import ServiceSection from './ServiceSection/ServiceSection';
 import TimeSection from './TimeSection/TimeSection';
 import AppointmentSection from './AppointmentSection';
+import TestimonialSection from './TestimonialSection/TestimonialSection';
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             <ServiceSection />
             <Checkup />
             <AppointmentSection />
+            <TestimonialSection />
         </div>
     );
 };
