@@ -6,6 +6,7 @@ import TimeSection from './TimeSection/TimeSection';
 import AppointmentSection from './AppointmentSection';
 import TestimonialSection from './TestimonialSection/TestimonialSection';
 import ContactSection from './ContactSection';
+import Footer from '../../Shared/Footer';
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
             <AppointmentSection />
             <TestimonialSection />
             <ContactSection />
+            <Footer />
         </div>
     );
 };
