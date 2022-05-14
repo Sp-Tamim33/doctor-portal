@@ -7,11 +7,11 @@ import 'react-day-picker/dist/style.css';
 
 
 const AppointmentBanner = () => {
-    const [selected, setSelected] = useState(new Date());
+    const [date, setDate] = useState(new Date());
 
     let footer = <p>Please pick a day.</p>;
-    if (selected) {
-        footer = <p className='mt-10'>You picked {format(selected, 'PP')}.</p>;
+    if (date) {
+        footer = <p className='mt-10'>You picked {format(date, 'PP')}.</p>;
     }
     return (
         <div>
@@ -21,8 +21,8 @@ const AppointmentBanner = () => {
                     <div className='bg-white rounded-lg md:mr-10'>
                         <DayPicker
                             mode="single"
-                            selected={selected}
-                            onSelect={setSelected}
+                            selected={date}
+                            onSelect={setDate}
                             footer={footer}
                         />
                     </div>
