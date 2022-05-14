@@ -1,13 +1,13 @@
 import { format } from 'date-fns';
-import React, { useState } from 'react';
+import React from 'react';
 import chairImg from '../../assets/images/chair.png';
 import bgImg from '../../assets/images/bg.png';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 
 
-const AppointmentBanner = () => {
-    const [date, setDate] = useState(new Date());
+const AppointmentBanner = ({ date, setDate }) => {
+
 
     let footer = <p>Please pick a day.</p>;
     if (date) {
