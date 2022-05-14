@@ -15,7 +15,7 @@ const TimeSection = () => {
             />
             <TimeSectionCard
                 img={marker}
-                bg="bg-accent text-white"
+                bg="dark:bg-gray-700 text-white"
                 header="Visit Our Location"
                 body="Brahmanbaria, Bangladesh"
             />
