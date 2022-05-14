@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../Firebase.init";
+import { signOut } from "firebase/auth";
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [user] = useAuthState(auth);
     return (
         <div>
             <nav className="shadow-lg">
@@ -38,19 +42,27 @@ function Navbar() {
                                         Appointment
                                     </Link>
 
-                                    <Link
-                                        to="login"
-                                        className="text-black hover:bg-secondary hover:text-white px-3 py-2 rounded-md text-lg font-medium"
-                                    >
-                                        Login
-                                    </Link>
+                                    {
+                                        user ? <button onClick={() => signOut(auth)} className="text-black hover:bg-secondary hover:text-white px-3 py-2 rounded-md text-lg font-medium">Sign out</button>
+                                            :
+                                            <div>
+                                                <Link
+                                                    to="login"
+                                                    className="text-black hover:bg-secondary hover:text-white px-3 py-2 rounded-md text-lg font-medium"
+                                                >
+                                                    Login
+                                                </Link>
 
-                                    <Link
-                                        to="signup"
-                                        className="text-black hover:bg-secondary hover:text-white px-3 py-2 rounded-md text-lg font-medium"
-                                    >
-                                        Signup
-                                    </Link>
+                                                <Link
+                                                    to="signup"
+                                                    className="text-black hover:bg-secondary hover:text-white px-3 py-2 rounded-md text-lg font-medium"
+                                                >
+                                                    Signup
+                                                </Link>
+                                            </div>
+                                    }
+
+
                                 </div>
                             </div>
                         </div>
