@@ -11,13 +11,13 @@ const Footer = () => {
                         <h2 class="mb-6 text-lg font-semibold uppercase">Company</h2>
                         <ul>
                             <li class="mb-4">
-                                <Link to='home' class=" hover:underline">About</Link>
+                                <Link to='/home' class=" hover:underline">About</Link>
                             </li>
                             <li class="mb-4">
-                                <Link to='home' class="hover:underline">Careers</Link>
+                                <Link to='/home' class="hover:underline">Careers</Link>
                             </li>
                             <li class="mb-4">
-                                <Link to='home' class="hover:underline">Brand Center</Link>
+                                <Link to='/home' class="hover:underline">Brand Center</Link>
                             </li>
                         </ul>
                     </div>
@@ -25,16 +25,16 @@ const Footer = () => {
                         <h2 class="mb-6 text-lg font-semibold uppercase">Help center</h2>
                         <ul>
                             <li class="mb-4">
-                                <Link to='home' class="hover:underline">Discord Server</Link>
+                                <Link to='/home' class="hover:underline">Discord Server</Link>
                             </li>
                             <li class="mb-4">
-                                <Link to='home' class="hover:underline">Twitter</Link>
+                                <Link to='/home' class="hover:underline">Twitter</Link>
                             </li>
                             <li class="mb-4">
-                                <Link to='home' class="hover:underline">Facebook
-                                </Link></li><Link to='home' class="hover:underline">
-                            </Link><li class="mb-4"><Link to='home' class="hover:underline">
-                            </Link><Link to='home' class="hover:underline">Contact Us</Link>
+                                <Link to='/home' class="hover:underline">Facebook
+                                </Link></li><Link to='/home' class="hover:underline">
+                            </Link><li class="mb-4"><Link to='/home' class="hover:underline">
+                            </Link><Link to='/home' class="hover:underline">Contact Us</Link>
                             </li>
                         </ul>
                     </div>
@@ -42,13 +42,13 @@ const Footer = () => {
                         <h2 class="mb-6 text-lg font-semibold uppercase">Legal</h2>
                         <ul>
                             <li class="mb-4">
-                                <Link to='home' class="hover:underline">Privacy Policy</Link>
+                                <Link to='/home' class="hover:underline">Privacy Policy</Link>
                             </li>
                             <li class="mb-4">
-                                <Link to='home' class="hover:underline">Licensing</Link>
+                                <Link to='/home' class="hover:underline">Licensing</Link>
                             </li>
                             <li class="mb-4">
-                                <Link to='home' class="hover:underline">Terms &amp; Conditions</Link>
+                                <Link to='/home' class="hover:underline">Terms &amp; Conditions</Link>
                             </li>
                         </ul>
                     </div>

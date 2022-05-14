@@ -4,7 +4,7 @@ const AppointmentCard = ({ item }) => {
     const { name, slots } = item;
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card md:max-w-md bg-base-100 shadow-xl px-5">
                 <div className="card-body text-center">
                     <h2 className="card-title mx-auto text-secondary font-semibold">{name}</h2>
                     <p>{slots.length > 1 ? <span>{slots[0]}</span> : <span className='text-red-500'>No Slot Available</span>}</p>
