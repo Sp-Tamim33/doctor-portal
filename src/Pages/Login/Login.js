@@ -3,11 +3,13 @@ import { useSignInWithGoogle, useSignInWithEmailAndPassword } from 'react-fireba
 import auth from '../../Firebase.init';
 import Loading from '../Loading/Loading';
 import { useForm } from "react-hook-form";
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+
 
 
 
 const Login = () => {
+    const location = useLocation();
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [
         signInWithEmailAndPassword,
@@ -16,11 +18,9 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const navigate = useNavigate();
 
-    // user 
-    if (user || googleUser) {
-        Navigate('/home')
-    }
+    // const from = location.state?.from?.pathname || "/";
 
     // loading 
     if (googleLoading || loading) {
@@ -33,9 +33,23 @@ const Login = () => {
         errorMessage = <p className='text-red-500'>{error?.message || googleError?.message}</p>
     }
 
+    const from = location?.state?.from?.pathname || "/";
     const onSubmit = data => {
-        signInWithEmailAndPassword(data.email, data.password)
+        signInWithEmailAndPassword(data.email, data.password);
+        navigate(from, { replace: true });
+        // console.log(user || googleError);
     };
+
+    // user 
+    if (user || googleUser) {
+        console.log(user || googleUser);
+        navigate(from, { replace: true });
+    }
+
+
+
+
+
     return (
         <div className='flex justify-center items-center h-screen border-2'>
             <div class="card shadow-xl ">

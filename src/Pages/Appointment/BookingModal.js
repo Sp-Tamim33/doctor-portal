@@ -1,8 +1,11 @@
 import { format } from 'date-fns';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../Firebase.init';
 
 const BookingModal = ({ item, date }) => {
     const { name, slots } = item;
+    const [user] = useAuthState(auth);
     return (
         <div>
             <input type="checkbox" id="booking-modal" class="modal-toggle" />
@@ -18,8 +21,8 @@ const BookingModal = ({ item, date }) => {
                                 slots.map(slot => <option value={slot}>{slot}</option>)
                             }
                         </select>
-                        <input type="text" placeholder="Your Name" class="input input-bordered w-full max-w-xs" />
-                        <input type="email" placeholder="Your Email" class="input input-bordered w-full max-w-xs" />
+                        <input type="text" readOnly disabled value={user?.displayName} class="input input-bordered w-full max-w-xs" />
+                        <input type="email" readOnly disabled value={user?.email} class="input input-bordered w-full max-w-xs" />
                         <input type="text" placeholder="Phone Number" class="input input-bordered w-full max-w-xs" />
                         <input type="submit" value="Book" class=" w-full max-w-xs btn bg-gradient-to-r from-secondary to-primary text-white border-0" />
                     </form>
