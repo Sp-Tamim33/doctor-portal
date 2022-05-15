@@ -11,7 +11,7 @@ const AppointmentCard = ({ item, setClick }) => {
                     <p>{slots.length} Service Available</p>
                     <div className="card-actions justify-center">
 
-                        <label onClick={() => setClick(item)} disabled={slots.length < 1 ? true : false} for="booking-modal" class="btn bg-gradient-to-r from-secondary to-primary text-white border-0">Book Appointment</label>
+                        <label onClick={() => setClick(item)} disabled={slots.length < 1 ? true : false} for="booking-modal" className="btn bg-gradient-to-r from-secondary to-primary text-white border-0">Book Appointment</label>
                     </div>
                 </div>
             </div>

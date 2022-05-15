@@ -20,7 +20,7 @@ const AvailableAppointment = ({ date }) => {
                     bookings?.map(data => <AppointmentCard key={data._id} item={data} setClick={setClick} />)
                 }
             </div>
-            {click && <BookingModal item={click} date={date} />}
+            {click && <BookingModal item={click} key={click._id} date={date} />}
         </div>
     );
 };

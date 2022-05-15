@@ -52,14 +52,14 @@ const Login = () => {
 
     return (
         <div className='flex justify-center items-center h-screen border-2'>
-            <div class="card shadow-xl ">
-                <div class="card-body border-2 border-secondary px-5 md:px-10">
-                    <h2 class="card-title mx-auto text-3xl border-b-2 border-b-secondary px-3">Login</h2>
+            <div className="card shadow-xl ">
+                <div className="card-body border-2 border-secondary px-5 md:px-10">
+                    <h2 className="card-title mx-auto text-3xl border-b-2 border-b-secondary px-3">Login</h2>
                     <form onSubmit={handleSubmit(onSubmit)} className="w-[300px]">
                         {/* Email Field  */}
-                        <div class="form-control w-full">
-                            <label class="label">
-                                <span class="label-text">Email</span>
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Email</span>
                             </label>
                             <input
                                 {...register("email", {
@@ -74,9 +74,9 @@ const Login = () => {
                                 })}
                                 type="email"
                                 placeholder="Your Email"
-                                class="input input-bordered w-full" />
-                            <label class="label">
-                                <span class="label-text-alt text-red-500">
+                                className="input input-bordered w-full" />
+                            <label className="label">
+                                <span className="label-text-alt text-red-500">
                                     {errors.email?.type === 'required' && errors.email.message}
                                     {errors.email?.type === 'pattern' && errors.email.message}
                                 </span>
@@ -84,9 +84,9 @@ const Login = () => {
                         </div>
 
                         {/* password field  */}
-                        <div class="form-control w-full">
-                            <label class="label">
-                                <span class="label-text">Password</span>
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Password</span>
                             </label>
                             <input
                                 {...register("password", {
@@ -97,9 +97,9 @@ const Login = () => {
                                 })}
                                 type="password"
                                 placeholder="Password"
-                                class="input input-bordered w-full" />
-                            <label class="label">
-                                <span class="label-text-alt text-red-500">
+                                className="input input-bordered w-full" />
+                            <label className="label">
+                                <span className="label-text-alt text-red-500">
                                     {errors.password?.type === 'required' && errors.password.message}
                                 </span>
                             </label>
@@ -111,7 +111,7 @@ const Login = () => {
 
                     <p>New to Doctor Portal ? <Link to='/signup' className='text-secondary underline'>Create an Account</Link></p>
 
-                    <div class="divider">OR</div>
+                    <div className="divider">OR</div>
 
                     <button onClick={() => signInWithGoogle()} className="btn bg-gradient-to-r from-secondary to-primary text-white border-0">Continue With Google</button>
                 </div>
