@@ -7,7 +7,7 @@ const AvailableAppointment = ({ date }) => {
     const [bookings, setBookings] = useState();
     const [click, setClick] = useState(null)
     useEffect(() => {
-        fetch('Services.json')
+        fetch('http://localhost:5000/service')
             .then(res => res.json())
             .then(data => setBookings(data))
     }, [])
@@ -20,7 +20,7 @@ const AvailableAppointment = ({ date }) => {
                     bookings?.map(data => <AppointmentCard key={data._id} item={data} setClick={setClick} />)
                 }
             </div>
-            {click && <BookingModal item={click} key={click._id} date={date} />}
+            {click && <BookingModal item={click} key={click._id} date={date} setClick={setClick} />}
         </div>
     );
 };
