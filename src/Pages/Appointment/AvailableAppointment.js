@@ -5,12 +5,14 @@ import BookingModal from './BookingModal';
 
 const AvailableAppointment = ({ date }) => {
     const [bookings, setBookings] = useState();
-    const [click, setClick] = useState(null)
+    const [click, setClick] = useState(null);
+
+    const formatedDate = format(date, "PP");
     useEffect(() => {
-        fetch('http://localhost:5000/service')
+        fetch(`http://localhost:5000/available?date=${formatedDate}`)
             .then(res => res.json())
             .then(data => setBookings(data))
-    }, [])
+    }, [formatedDate])
     return (
         <div className='py-16'>
             <p className='text-secondary font-semibold text-lg text-center pb-5'>Available Appointment on {format(date, "PP")}</p>

@@ -4,7 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../Firebase.init';
 
-const BookingModal = ({ item, date, setClick }) => {
+const BookingModal = ({ item, date, setClick, refetch }) => {
     const { _id, name, slots } = item;
     const [user] = useAuthState(auth);
 
@@ -55,6 +55,7 @@ const BookingModal = ({ item, date, setClick }) => {
                         progress: undefined,
                     })
                 }
+                refetch();
                 setClick(null);
             });
     }
