@@ -1,17 +1,62 @@
 import { format } from 'date-fns';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
 import auth from '../../Firebase.init';
 
 const BookingModal = ({ item, date, setClick }) => {
-    const { name, slots } = item;
+    const { _id, name, slots } = item;
     const [user] = useAuthState(auth);
 
 
-    const handleSubmit = event => {
-        event.preventDefault()
-        console.log(event.target.name.value);
-        setClick(null)
+    const formattedDate = format(date, 'PP');
+    const handleBooking = event => {
+        event.preventDefault();
+        const slot = event.target.slot.value;
+
+        const booking = {
+            treatmentId: _id,
+            treatment: name,
+            date: formattedDate,
+            slot,
+            patient: user.email,
+            patientName: user.displayName,
+            phone: event.target.phone.value
+        }
+
+        fetch('http://localhost:5000/bookings', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(booking)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    toast(`Appointment is set, ${formattedDate} at ${slot}`, {
+                        position: "top-right",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    })
+                }
+                else {
+                    toast.error(`Already have and appointment on ${data.booking?.date} at ${data.booking?.slot}`, {
+                        position: "top-right",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    })
+                }
+                setClick(null);
+            });
     }
 
 
@@ -23,7 +68,7 @@ const BookingModal = ({ item, date, setClick }) => {
                     <label for="booking-modal" className="btn bg-secondary border-0 btn-sm btn-circle absolute right-2 top-2">✕</label>
 
                     <h3 className="font-bold text-lg">Booking for : <span className='text-secondary'>{name}</span></h3>
-                    <form onSubmit={handleSubmit} className='grid grid-cols-1 gap-3 justify-items-center py-3'>
+                    <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 justify-items-center py-3'>
                         <input type="text" readOnly disabled value={format(date, 'PP')} className="input input-bordered w-full max-w-xs" />
                         <select name='slot' className="select select-bordered w-full max-w-xs">
                             {
